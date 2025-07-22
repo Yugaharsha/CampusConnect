@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="css/Student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="student.js"></script>
+ 
+
+
+</head>
+<body>
+    <header>
+        <h1><b>Velammal College of Engineering & Technology</b> <img src="assets/logo.jpeg" alt="College Logo" width="60" height="60"></h1>
+        <a href="auth/logout.php" >Logout</a>
+    </header>
+   
+    <form action="index.php" method="post" id="form" enctype="multipart/form-data">
+    <div class="container">
+        <section id="personal-info">
+            <div class="details"><h3>Personal Details</h3></div>
+            <div class="det">
+                <div class="input-group-pic">
+                    <h2>Profile Picture</h2>
+                    <label for="profile-pic" class="upload-label">Choose File</label>
+                    <input type="file" id="profile-pic" name="profile-pic" accept="image/*" onchange="previewImage(event)">
+                    <input type="hidden" id="new-file-name" name="new-file-name" value="">
+                    <div id="preview-container">
+                        <img id="preview" src="" alt="Preview will appear here" style="display: none; max-width: 150px; max-height: 150px; margin-top: 10px;">
+                    </div>            
+                </div>
+                <br>                
+                <div class="input-group">
+                    <label for="name">Name:</label><label for="aadhar" style="margin-left: 300px;">Aadhar:</label>
+                    <br> 
+                    <input type="text" id="name" name="name" placeholder="initials at last ex. Aaaa S or Aaaa S.B" style="width: 300px;" required>            
+                    <input type="text" name="aadhar" placeholder="ex. 1000 2000 3000" style="width: 250px ; margin-left: 125px;" required>
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="email">Email:</label> <label for="ph" style="margin-left: 295px;">Phone number:</label>
+                    <br>
+                    <input type="email" name="email" placeholder="Email" style="width: 250px ;" required>
+              
+                    <input type="tel" name="ph" placeholder="ex. 9123456789" style="width: 250px ;margin-left: 175px;" required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="dob">Date of Birth:</label> <label for="gender" style="margin-left: 295px;">Gender:</label><br>
+                    <input type="date" name="dob" style="width: 200px;" required> 
+                
+                  
+                    <input type="radio" name="gender" value="2"  id="gender-female" style="margin-left: 228px;" required>
+                    <label class="radio-label" for="gender-female">Female</label>
+                    <input type="radio" name="gender" value="1" id="gender-male" style="margin-left: -30px;" required>
+                    <label class="radio-label" for="gender-male">Male</label>
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="reg">Register number:</label><br>
+                    <div class="fixed-input">
+                        <span class="fixed-text">9131</span>
+                        <input type="text" id="reg" name="reg" placeholder="ex. 22100100">
+                    </div>
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="m_name">Mother Name:</label>  <label for="m_ph" style="margin-left: 130px;">Phone number:</label><label for="m_occ" style="width: 250px;margin-left: 120px;">Mother's Occupation:</label>
+                    <br>
+                    <input type="text" name="m_name" placeholder="ex. Aaaa S or Aaaa S.B" style="width:200px;" required>
+                
+                    <input type="tel" name="m_ph" placeholder="ex. 9123456789" style="width: 200px ;margin-left: 60px;" required>
+                    <select name="m_occ" style="width: 200px;margin-left: 50px;" required>
+                        <option selected disabled>Select any one</option>
+                        <option value="1">Government</option>
+                        <option value="2">Business</option>
+                        <option value="3">Private</option>
+                        <option value="4">Self-Employed</option>
+                        <option value="5">Other</option>
+                        <option value="6">NA</option>
+                    </select>
+                </div>
+                <br>
+             
+                <br>
+                <div class="input-group">
+                    <label for="f_name">Father Name:</label>  <label for="f_ph" style="margin-left: 130px;">Phone number:</label> <label for="f_occ" style="width: 250px;margin-left: 120px;">Father's Occupation:</label>
+
+                    <br>
+                    <input type="text" name="f_name" placeholder="ex. Aaaa S or Aaaa S.B" style="width:200px;" required>
+                    <input type="tel" name="f_ph" placeholder="ex. 9123456789" style="width: 200px ;margin-left: 60px;" required>
+              
+                    <select name="f_occ" style="width: 200px;margin-left: 50px;" required>
+                        <option selected disabled>Select any one</option>
+                        <option value="1">Government</option>
+                        <option value="2">Business</option>
+                        <option value="3">Private</option>
+                        <option value="4">Self-Employed</option>
+                        <option value="5">Other</option>
+                        <option value="6">NA</option>
+                    </select>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="income">Annual Income:</label><label for="tongue"  style="margin-left: 130px;">Mother Tongue:</label><br>
+
+                    <input type="number" name="income" placeholder="" min=0 style="width: 150px ;" required>
+               
+                    <select name="tongue" style="width: 200px ;margin-left: 110px;">
+                        <option selected disabled>Select any one</option>
+
+                        <option value="1">Tamil</option>
+                        <option value="2">Hindi</option>
+                        <option value="3">Malayalam</option>
+                        <option value="4">Telugu</option>
+                        <option value="5">Kannadam</option>
+                        <option value="6">English</option>
+                        <option value="7">Other</option>
+                    </select>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="lang">Languages Known: </label> <span id="errr"></span>
+                    <br>
+                    <div class="row1" style="display: flex; flex-direction: row" >
+                    <label class="bold-label" ><input type="checkbox" name="lang[]" value="Tamil" >Tamil</label>
+                    <label class="bold-label" ><input type="checkbox" name="lang[]" value="English" style="margin-left: -40px;">English</label>
+                    <label class="bold-label" ><input type="checkbox" name="lang[]" value="Hindi" style="margin-left: -80px;">Hindi</label>
+                    </div>
+                    <div class="row2" style="display: flex; flex-direction: row" >
+
+                    <label class="bold-label" ><input type="checkbox" name="lang[]" value="Malayalam" >Malayalam</label>
+                    <label class="bold-label" ><input type="checkbox" name="lang[]" value="Telugu" style="margin-left: -40px;">Telugu</label>
+                    <label class="bold-label" ><input type="checkbox" name="lang[]" value="Kannadam" style="margin-left: -80px;">Kannada</label>
+                    </div>
+
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="addr">Address:</label>
+                    <textarea name="addr" rows="4" cols="50" required></textarea>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="native">Native:</label><label for="pin" style="width: 250px ;margin-left: 295px;">Pin code:</label>
+                    <br>
+                    <input type="text" name="native" style="width: 250px" required>
+                    <input type="text" name="pin" placeholder="ex. 600001" style="width: 150px ;margin-left: 175px;" required>
+                </div>
+                
+                <br>
+                <div class="input-group">
+                    <label for="doj">Date of Join:</label><label for="mode" style="margin-left: 295px;">Mode of Study:</label><br>
+
+                    <input type="date" name="doj" style="width: 150px;" required>
+           
+                    <input type="radio" name="mode" value="1" required style="margin-left: 270px;">
+                    <label class="radio-label" for="mode">Day-Scholar</label>
+                    <input type="radio" name="mode" value="2" required style="margin-left: -30px;">
+                    <label class="radio-label" for="mode">Hostelite</label>
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="trans">Transport:</label>
+                    <select name="trans" style="width: 250px ;" required>
+                        <option selected disabled>Select any one</option>
+                        <option value="1">College Bus</option>
+                        <option value="2">Self</option>
+                        <option value="3">Others</option>
+                        <option value="4">NA (if hostel)</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="first_graduate">First Graduate:</label><label for="quota" style="margin-left: 295px;">Quota:</label><br>
+
+                    <input type="radio" name="first_graduate" value="1" style="margin-left: -1px;" required>
+                    <label class="radio-label" for="first_graduate">Yes</label>
+                    <input type="radio" name="first_graduate" value="2" style="margin-left: -80px;" required>
+                    <label class="radio-label" for="first_graduate">No</label>
+              
+                    <input type="radio" name="quota" value="1" style="margin-left: 180px;" required>
+                    <label class="radio-label" for="quota">General</label>
+                    <input type="radio" name="quota" value="2" style="margin-left: -50px;" required>
+                    <label class="radio-label" for="quota">Management</label>
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="community">Community:</label>  <label for="caste"  style="width: 250px ;margin-left: 295px;">Caste:</label>
+                     <br>
+                    <select name="community" style="width: 250px" required>
+                        <option selected disabled>Select any one</option>
+                        <option value="1">OC</option>
+                        <option value="2">BC</option>
+                        <option value="3">MBC</option>
+                        <option value="4">SC</option>
+                        <option value="5">ST</option>
+                        <option value="6">DNC</option>
+                        <option value="7">Others</option>
+                    </select>
+
+                    <input type="text" name="caste"  style="width: 200px ;margin-left: 195px;" required>
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="schlr">Scholarship Name:</label><br>
+                    <input type="text" name="schlr" placeholder="if applied for any external scholarship, mention" style="width: 500px;">
+                </div>
+                <br>
+                <div class="input-group">
+                    <label for="physically_challenged" style="width: 250px;">Physically Challenged:</label>
+                    <input type="radio" name="physically_challenged" value="1" required style="margin-left: -1px">
+                    <label class="radio-label" for="physically_challenged">Yes</label>
+                    <input type="radio" name="physically_challenged" value="2" required style="margin-left: -50px">
+                    <label class="radio-label" for="physically_challenged">No</label>
+                </div>
+                <br>
+
+                <div class="input-group">
+                    <label for="vaccinated" style="width: 250px;">Double Vaccinated:</label>
+                    <input type="radio" name="vaccinated" value="1" required style="margin-left: -1px">
+                    <label class="radio-label" for="vaccinated">Yes</label>
+                    <input type="radio" name="vaccinated" value="2" required style="margin-left: -50px">
+                    <label class="radio-label" for="vaccinated">No</label>
+                </div>
+                <br>
+
+                <div class="input-group" >
+                    <label for="under_any_treatment" style="width: 250px;">Under any Treatment?</label>
+                    <input type="radio" name="under_any_treatment" value="1" required style="margin-left: -1px">
+                    <label class="radio-label" for="under_any_treatment">Yes</label>
+                    <input type="radio" name="under_any_treatment" value="2" required style="margin-left: -50px">
+                    <label class="radio-label" for="under_any_treatment">No</label>
+                </div>
+                <br>
+            </div>
+        </section>
+        <br>
+
+        <section id="academic-details">
+            <div class="details"><h3>Academic</h3></div>
+            <div class="det">
+                    <div class="input-group">
+                        <label for="acad_type">Academic Type:</label>
+                        <select id="acad_type" name="acad_type" style="width: 250px" required>
+                            <option selected disabled value="">Select any one</option>
+                            <option value="1" id="sslc">SSLC</option>
+                            <option value="2" id="hsc">HSC</option>
+                            <option value="3" id="diploma">Diploma</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="inst_name">Institution Name:</label>
+                        <input type="text" id="inst_name" name="inst_name" placeholder="Name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="acd_reg_no">Register Number:</label>
+                        <input type="text" id="acd_reg_no" name="acd_reg_no" placeholder="" style="width: 180px" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mode_of_study">Mode Of Study:</label>
+                        <select id="mode_of_study" name="mode_of_study" style="width: 180px" required>
+                            <option selected disabled value="">Select any one</option>
+                            <option value="1">Full-Time</option>
+                            <option value="2">Part-Time</option>
+                        </select>
+                        <label for="mode_of_medium" style="margin-left: 60px;">Mode Of Medium:</label>
+                        <select id="mode_of_medium" name="mode_of_medium" style="width: 180px" required>
+                            <option selected disabled value="">Select any one</option>
+                            <option value="1">English</option>
+                            <option value="2">Tamil</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="board">Board:</label>
+                        <select id="board" name="board" style="width: 200px" required>
+                            <option selected disabled value="">Select any one</option>
+                            <option value="1">State Board</option>
+                            <option value="2">Matric</option>
+                            <option value="3">CBSE</option>
+                            <option value="4">ICSE</option>
+                            <option value="5">Others</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="marks_obtained">Marks Obtained:</label>
+                        <input type="number" id="marks_obtained" name="marks_obtained" placeholder="ex.400" style="width: 90px" min="0"  required>
+                        /
+                        <input type="number" id="total_marks" name="total_marks" placeholder="ex.500" style="width: 90px;" min="0"  required>
+                    </div>
+                    <div class="input-group">
+                        <label for="percentage">Percentage:</label>
+                        <label for="cut_off" style="margin-left: 250px;">Cut-Off:</label>
+                        <br>
+                        <input type="number" id="percentage" name="percentage" placeholder="ex.90.05" style="width: 120px" min="0" max="100" step="0.01"  required>
+                        <input type="number" id="cut_off" name="cut_off" placeholder="ex.150.7" style="width: 120px;margin-left: 265px;" min="0" max="200"  required>
+                    </div>
+                    <input type="hidden" id="storedData" name="storedData">
+                    <button id="submitBtn" type="button">Done</button>
+                    <br><br>
+            </div>
+        </section>
+        <br>     
+
+        <section id="extra-curr">
+            <div class="details"><h3>Extra - Curricular</h3></div>
+            <div class="det">
+                <div class="input-group">
+                    <label for="Hobbies">Hobbies:</label><br>
+                    <textarea id="Hobbies" name="hobbies" rows="2" cols="30" style="width: 450px"></textarea>
+                </div>
+                <div class="input-group" style="display: -webkit-flex;">
+                    <label for="Certification_Courses" style="width: 250px">Certification Courses: </label><br>
+            
+                    <div class="input-row" >
+                        <label for="Programming_Language" style="width: 250px;font-size: 14px;margin-top: 40px;">Programming Language: </label>
+                        <div class="input-Programming_Language">
+                            <input type="text" id="Programming_Language" name="Programming_Language[]" placeholder="" style="width: 200px;">
+                            <i id="addProgrammingLanguage" class="fas fa-plus icon" style="margin-left:5px;color: rgb(77, 147, 3);" ></i>
+                    </div>
+                    </div>
+                    
+                    <div class="input-row">
+                        <label for="Other_Courses" style="width: 250px;font-size: 14px;margin-left: 20px;margin-top: 40px;">Other Courses: </label>
+                        <div class="input-Other_Courses" >
+                            <input type="text" id="Other_Courses" name="Other_Courses[]" placeholder="" style="width: 200px;">
+                            <i id="addOtherCourses" class="fas fa-plus icon" style="margin-left: 5px;color: rgb(77, 147, 3);"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="Interest">Interests:</label><br>
+                    <textarea id="Interest" name="interests" rows="4" cols="30" style="width: 450px" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="Dream_Company" style="width: 200px"> Dream Company: </label><br>
+                    <div class="input-Dream_Company">
+                          <input type="text" id="Dream_Company" name="Dream_Company[]" placeholder="" style="width: 200px">
+                          <i id="addDream_Company" class="fas fa-plus icon" style="margin-left: 5px;color: rgb(77, 147, 3);"></i>              
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="Ambition">Ambition:</label><br>
+                    <textarea id="Ambition" name="ambition" rows="4" cols="30" style="width: 450px" required></textarea>
+                </div>
+            </div>
+        </section><br>
+        <center><button class="submit-button" id="FinalSubmit" type="button">Submit</button></center>        
+        <input type="hidden" id="roll_no" name="roll_no" value="">
+    </div>
+    </form>
+
+    <script>
+    
+  document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const r_no = params.get('value'); 
+        window.r_no = r_no;
+
+        if (r_no) {
+            document.getElementById('roll_no').innerText = r_no;
+            document.getElementById('roll_no').value = r_no;
+        } else {
+            document.getElementById('roll_no').innerText = 'No value received.';
+        }                    
+           
+    });
+     $(document).ready(function() {    
+        $(".details").click(function() {
+            $(this).next(".det").slideToggle("slow");
+        });
+     });
+        
+    function previewImage(event) {
+                const previewContainer = document.getElementById("preview-container");
+                const previewImage = document.getElementById("preview");
+
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        previewImage.src = e.target.result;  
+                        previewImage.style.display = "block"; 
+                    }
+                    reader.readAsDataURL(file);  
+                } else {
+                    previewImage.style.display = "none"; 
+                }
+        }
+    
+    </script>
+</body>
+</html>

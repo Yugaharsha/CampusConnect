@@ -1,0 +1,33 @@
+#generate-pdf, #edit {
+    background-color: rgb(95, 158, 164);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#generate-pdf:hover, #edit:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+#generate-pdf:active, #edit:active {
+    background-color: #1a5a79;
+    transform: translateY(0);
+}
+
+#generate-pdf:focus, #edit:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
+}
+
+#sslc, #hsc, #FinalSubmit {
+    display: none;
+}
