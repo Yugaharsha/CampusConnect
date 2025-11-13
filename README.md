@@ -21,7 +21,7 @@ plifies the management of student information. While administrators generate PDF
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/AKSHAYAKS-03/CampusDirectory.git
+   git clone https://github.com/Yugaharsha/CampusConnect.git
    ```
 
 2. **Place the project** in your local server’s root directory:
